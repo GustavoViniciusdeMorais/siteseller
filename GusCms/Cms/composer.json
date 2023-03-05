@@ -1,0 +1,15 @@
+{
+    "name": "gustavomorais/cms",
+    "description": "cms",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GustavoMorais\\Cms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gustavo"
+        }
+    ]
+}
