@@ -32,4 +32,10 @@ Created by: Gustavo Morais
 php artisan gus:cms gus
 ```
 
+### Seed Templates
+```
+php artisan vendor:publish --tag=cms-seeders
+php artisan db:seed --class=TemplateSeeder
+```
+
 ![](./imgs/cmsDb1.png)
