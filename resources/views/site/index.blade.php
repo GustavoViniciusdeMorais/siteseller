@@ -41,6 +41,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
   <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+  <a href="/dashboard"  class="w3-bar-item w3-button w3-padding">Dashboard</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -60,7 +61,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   
   <!-- Top header -->
   <header class="w3-container w3-xlarge">
-    <p class="w3-left">{{ $template->title }}</p>
+    <p class="w3-left">{{ $template->title ?? 'Jeans' }}</p>
     <p class="w3-right">
       <i class="fa fa-shopping-cart w3-margin-right"></i>
       <i class="fa fa-search"></i>
@@ -186,17 +187,37 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
         <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
         <br>
-        <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
-        <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
-        <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
-        <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
-        <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+        @if ($links)
+          @foreach ($links as $link)
+            <a href="{{$link->value}}">
+              <i class="
+              fa fa-{{$link->type}}{{$link->type == 'facebook' ? '-official' : ''}} w3-hover-opacity w3-large
+              ">
+              </i>
+            </a>
+          @endforeach
+          {{-- <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+          <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+          <i class="fa fa-twitter w3-hover-opacity w3-large"></i> --}}
+        @else
+          <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+          <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+          <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+        @endif
+        
+        {{-- <i class="fa fa-snapchat w3-hover-opacity w3-large"></i> --}}
+        {{-- <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i> --}}
+        {{-- <i class="fa fa-linkedin w3-hover-opacity w3-large"></i> --}}
       </div>
     </div>
   </footer>
 
   <div class="w3-black w3-center w3-padding-24">Powered by <a href="" title="W3.CSS" target="_blank" class="w3-hover-opacity">Gustavo Morais</a></div>
+  <div class="w3-black w3-center w3-padding-24">
+    <a href="/dashboard"  class="w3-bar-item w3-button w3-padding">
+      Dashboard
+    </a>
+  </div>
 
   <!-- End page content -->
 </div>

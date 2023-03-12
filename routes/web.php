@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LinksController;
 use App\Http\Controllers\TemplateController;
 
 /*
@@ -24,4 +25,7 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/template', [TemplateController::class, 'index'])->name('template');
     Route::get('/template/{id}', [TemplateController::class, 'edit'])->name('edit-template');
     Route::put('/template/{id}', [TemplateController::class, 'update'])->name('update-template');
+
+    Route::get('/links', [LinksController::class, 'edit'])->name('edit-links');
+    Route::put('/links', [LinksController::class, 'update'])->name('update-links');
 });

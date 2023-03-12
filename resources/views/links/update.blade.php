@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Update Template Info</h1>
+    <h1>Links</h1>
 @stop
 
 @section('content')
@@ -14,30 +14,30 @@
         <div-card>
             <div class="card-header"></div>
             <div class="card-body">
-                <form method="POST" action="{{ route('update-template', ['id' => $template->id]) }}">
+                <form method="POST" action="{{ route('update-links') }}">
                     @csrf
                     @method('PUT')
 
-                    <label for="">
-                        Name
-                    </label>
-                    <input type="text" name="name" value="{{$template->name}}" class="form-control"/>
+                    @foreach ($links as $link)
+                        
+                        <label for="">
+                            {{ ucfirst($link->type) }}
+                        </label>
+                        <input type="text" name="{{$link->type}}" value="{{$link->value}}" class="form-control"/>
 
-                    <label for="">
-                        Title
-                    </label>
-                    <input type="text" name="title" value="{{$template->title}}" class="form-control"/>
 
-                    <input type="hidden" name="path" value="{{$template->path}}" class="form-control"/>
+                    @endforeach
+
                     <br>
                     <button class="btn btn-primary btn-block">
                         Save
                     </button>
+
                 </form>
             </div>
-            <div class="card-footer"></div>
         </div-card>
     </div>
+
 @stop
 
 @section('css')

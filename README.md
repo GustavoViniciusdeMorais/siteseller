@@ -14,6 +14,25 @@ Created by: Gustavo Morais
 },
 ```
 
+### Composer Package
+```json
+{
+    "name": "gustavomorais/cms",
+    "description": "cms",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GustavoMorais\\Cms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gustavo"
+        }
+    ]
+}
+```
+
 ### config/app.php
 ```php
 'providers' => [

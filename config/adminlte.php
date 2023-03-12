@@ -319,6 +319,10 @@ return [
             'text' => 'template',
             'url' => 'dashboard/template'
         ],
+        [
+            'text' => 'links',
+            'url' => 'dashboard/links'
+        ],
     ],
 
     /*
