@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Exception;
 use GustavoMorais\Cms\GusCms;
+use Illuminate\Support\Facades\Session;
+use App\Libs\TMessageManager;
 
 class TemplateController extends Controller
 {
+    use TMessageManager;
+    
     protected $cmsFacade;
 
     public function __construct()
@@ -40,6 +44,8 @@ class TemplateController extends Controller
     public function update(Request $request)
     {
         try {
+            $this->resetSessionMessage();
+
             $data = [];
             $data['id'] = $request->id;
             $data['name'] = $request->name;
@@ -49,8 +55,12 @@ class TemplateController extends Controller
             $result = $this->cmsFacade
                 ->updateTemplateData($data);
 
+            Session::flash('message', __('messages.success'));
+
             return $this->edit($request->id);
         } catch (Exception $e) {
+            $this->resetSessionMessage();
+            Session::flash('error', $e->getMessage());
             return $this->edit($request->id);
         }
     }

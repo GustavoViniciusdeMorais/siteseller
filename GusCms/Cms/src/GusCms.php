@@ -21,10 +21,8 @@ class GusCms
     public function updateTemplateData($data)
     {
         $action = new UpdateDataAction();
-        return $action
-            ->withData($data)
+        return $action->withData($data)
             ->setRules($this->templateFormRules)
-            ->validate()
             ->execute();
     }
 
