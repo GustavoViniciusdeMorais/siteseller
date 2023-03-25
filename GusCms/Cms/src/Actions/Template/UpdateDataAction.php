@@ -18,12 +18,12 @@ class UpdateDataAction extends AbAction
         unset($this->data['id']);
 
         if ($template) {
-            $result = $template->update($this->data);
+            $template->update($this->data);
         } else {
-            $result = Template::create($this->data);
+            $template = Template::create($this->data);
         }
         
-        return $this->success($result);
+        return $this->success($template);
     }
 
     public function validate()

@@ -24,6 +24,11 @@ class TemplateController extends Controller
         try {
             $templates = $this->cmsFacade->getTemplates();
             $templates = $templates->original['data'];
+
+            if (app()->runningInConsole()) {
+                return $templates;
+            }
+
             return view('template.index', ['templates' => $templates]);
         } catch (\Throwable $th) {
             //throw $th;
@@ -56,6 +61,10 @@ class TemplateController extends Controller
                 ->updateTemplateData($data);
 
             Session::flash('message', __('messages.success'));
+
+            if (app()->runningInConsole()) {
+                return $result;
+            }
 
             return $this->edit($request->id);
         } catch (Exception $e) {
