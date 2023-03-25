@@ -57,4 +57,9 @@ php artisan vendor:publish --tag=cms-seeders
 php artisan db:seed --class=TemplateSeeder
 ```
 
+### Run tests
+```
+php artisan test --filter TemplateTest
+```
+
 ![](./imgs/cmsDb1.png)
