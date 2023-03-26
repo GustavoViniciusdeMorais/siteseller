@@ -31,7 +31,7 @@
                     <input type="hidden" name="path" value="{{$template->path}}" class="form-control"/>
                     <br>
                     <button class="btn btn-primary btn-block">
-                        Save
+                        Salvar
                     </button>
                 </form>
             </div>

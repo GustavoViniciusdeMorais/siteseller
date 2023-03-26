@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactInfosController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\TemplateController;
 
@@ -28,4 +29,7 @@ Route::prefix('dashboard')->group(function () {
 
     Route::get('/links', [LinksController::class, 'edit'])->name('edit-links');
     Route::put('/links', [LinksController::class, 'update'])->name('update-links');
+
+    Route::get('/contatos', [ContactInfosController::class, 'index'])->name('contact');
+    Route::put('/contatos', [ContactInfosController::class, 'update'])->name('contact-update');
 });

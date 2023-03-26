@@ -30,7 +30,7 @@
 
                     <br>
                     <button class="btn btn-primary btn-block">
-                        Save
+                        Salvar
                     </button>
 
                 </form>

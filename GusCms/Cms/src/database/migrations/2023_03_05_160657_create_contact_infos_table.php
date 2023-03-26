@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('contact_infos', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->enum('type', ['phone', 'cellphone', 'email', 'address']);
             $table->string('value');
+            $table->string('icon');
             $table->timestamps();
         });
     }

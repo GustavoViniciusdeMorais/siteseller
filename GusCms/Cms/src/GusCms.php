@@ -7,6 +7,8 @@ use GustavoMorais\Cms\Actions\Links\UpdateLinksAction;
 use GustavoMorais\Cms\Actions\Template\GetDataByIdAction;
 use GustavoMorais\Cms\Actions\Template\GetTemplatesAction;
 use GustavoMorais\Cms\Actions\Template\UpdateDataAction;
+use GustavoMorais\Cms\Actions\ContactInfos\GetDataAction;
+use GustavoMorais\Cms\Actions\ContactInfos\UpdateContactsAction;
 
 class GusCms
 {
@@ -41,6 +43,18 @@ class GusCms
     public function updateLinks($data)
     {
         $action = new UpdateLinksAction();
+        return $action->withData($data)->execute();
+    }
+
+    public function getContactInfos()
+    {
+        $action = new GetDataAction();
+        return $action->execute();
+    }
+
+    public function updateContactInfos($data)
+    {
+        $action = new UpdateContactsAction();
         return $action->withData($data)->execute();
     }
 }
