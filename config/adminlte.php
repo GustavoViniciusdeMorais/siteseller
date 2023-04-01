@@ -327,6 +327,10 @@ return [
             'text' => 'contatos',
             'url' => 'dashboard/contatos'
         ],
+        [
+            'text' => 'menus',
+            'url' => 'dashboard/menus'
+        ],
     ],
 
     /*

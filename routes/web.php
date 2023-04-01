@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactInfosController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,7 @@ Route::prefix('dashboard')->group(function () {
 
     Route::get('/contatos', [ContactInfosController::class, 'index'])->name('contact');
     Route::put('/contatos', [ContactInfosController::class, 'update'])->name('contact-update');
+
+    Route::get('/menus', [MenuController::class, 'index'])->name('menus');
+    Route::get('/menus/{id}', [MenuController::class, 'show'])->name('show-menu');
 });

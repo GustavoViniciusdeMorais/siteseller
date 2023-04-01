@@ -5,8 +5,8 @@ namespace GustavoMorais\Cms\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MenuItem extends Model
+class Log extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'url', 'menu_id'];
+    protected $fillable = ['file', 'line', 'message', 'trace'];
 }

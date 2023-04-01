@@ -9,6 +9,8 @@ use GustavoMorais\Cms\Actions\Template\GetTemplatesAction;
 use GustavoMorais\Cms\Actions\Template\UpdateDataAction;
 use GustavoMorais\Cms\Actions\ContactInfos\GetDataAction;
 use GustavoMorais\Cms\Actions\ContactInfos\UpdateContactsAction;
+use GustavoMorais\Cms\Actions\Menus\GetMenusAction;
+use GustavoMorais\Cms\Actions\Menus\GetMenuByColumn;
 
 class GusCms
 {
@@ -55,6 +57,18 @@ class GusCms
     public function updateContactInfos($data)
     {
         $action = new UpdateContactsAction();
+        return $action->withData($data)->execute();
+    }
+
+    public function getMenus()
+    {
+        $action = new GetMenusAction();
+        return $action->execute();
+    }
+
+    public function getMenuByColumn($data)
+    {
+        $action = new GetMenuByColumn();
         return $action->withData($data)->execute();
     }
 }
