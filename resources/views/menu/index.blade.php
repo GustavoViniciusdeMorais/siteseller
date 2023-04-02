@@ -3,11 +3,15 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Menu</h1>
+    <h1>Gestão de Menus</h1>
 @stop
 
 @section('content')
-    <p>Gestão de Menus</p>
+    
+    <a class="btn btn-primary btn-block" href="{{route('create-menu')}}">
+        Cadastrar Menu
+    </a>
+    <br>
 
     @foreach ($menus as $menu)
         <div class="card">

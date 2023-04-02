@@ -58,6 +58,7 @@ php artisan db:seed --class=TemplateSeeder
 php artisan db:seed --class=LinksSeeder
 php artisan db:seed --class=ContactInfosSeeder
 php artisan db:seed --class=MenuSeeder
+php artisan db:seed --class=PostSeeder
 ```
 
 ### Run tests

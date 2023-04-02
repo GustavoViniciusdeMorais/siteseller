@@ -4,10 +4,10 @@ namespace GustavoMorais\Cms\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class LogFacade extends Facade
+class PostsFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'logfacade';
+        return 'postsfacade';
     }
 }

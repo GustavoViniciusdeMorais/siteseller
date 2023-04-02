@@ -14,7 +14,7 @@ class GetMenuByColumn extends AbAction
             is_array($this->data)
             && !empty($this->data)
         ) {
-            $query = Menu::select();
+            $query = Menu::with('items.subItems');
 
             foreach ($this->data as $column => $value) {
                 $query->where($column, $value);

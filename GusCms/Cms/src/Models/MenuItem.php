@@ -9,4 +9,9 @@ class MenuItem extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'url', 'menu_id'];
+
+    public function subItems()
+    {
+        return $this->hasMany(MenuSubItem::class);
+    }
 }

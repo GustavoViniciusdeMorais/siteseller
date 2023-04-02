@@ -35,5 +35,6 @@ Route::prefix('dashboard')->group(function () {
     Route::put('/contatos', [ContactInfosController::class, 'update'])->name('contact-update');
 
     Route::get('/menus', [MenuController::class, 'index'])->name('menus');
+    Route::get('/menus/create', [MenuController::class, 'create'])->name('create-menu');
     Route::get('/menus/{id}', [MenuController::class, 'show'])->name('show-menu');
 });

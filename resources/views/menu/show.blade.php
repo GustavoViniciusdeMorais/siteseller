@@ -7,7 +7,13 @@
 @stop
 
 @section('content')
-    <p>{{ $menu->name }}</p>
+
+    @foreach ($menu->items as $item)
+        <input type="text" name="{{ $item->id }}" value="{{ $item->name }}"
+            class="form-control">
+    @endforeach
+
+    </ul>
 @stop
 
 @section('css')

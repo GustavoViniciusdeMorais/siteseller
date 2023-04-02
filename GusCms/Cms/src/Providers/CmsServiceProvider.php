@@ -5,7 +5,8 @@ namespace GustavoMorais\Cms\Providers;
 use Illuminate\Support\ServiceProvider;
 use GustavoMorais\Cms\GusCms;
 use GustavoMorais\Cms\Commands\CmsCommands;
-use GustavoMorais\Cms\Facades\LogFacade;
+use GustavoMorais\Cms\LogFacade;
+use GustavoMorais\Cms\PostsFacade;
 
 class CmsServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,10 @@ class CmsServiceProvider extends ServiceProvider
         
         $this->app->singleton('logfacade', function($app){
             return new LogFacade();
+        });
+
+        $this->app->singleton('postsfacade', function($app){
+            return new PostsFacade();
         });
     }
 }
