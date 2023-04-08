@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('url');
             $table->unsignedBigInteger('menu_id');
+            $table->unsignedBigInteger('post_id');
             $table->timestamps();
 
             $table->foreign('menu_id')->references('id')->on('menus');
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

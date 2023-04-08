@@ -53,4 +53,17 @@ class MenuController extends CustomController
             return view('errors.index');
         }
     }
+
+    public function store(Request $request)
+    {
+        try {
+            $menu = $this->cmsFacade->createMenu($request->all());
+            $menu = $menu->original['data'];
+
+            return view('menu.show', ['menu' => $menu]);
+        } catch (\Exception $e) {
+            LogFacade::registerLog($e);
+            return view('errors.index');
+        }
+    }
 }

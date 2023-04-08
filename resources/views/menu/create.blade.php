@@ -7,25 +7,35 @@
 @stop
 
 @section('content')
+
+    @include('includes.messages')
+
     <br>
     <div class="card">
         <div class="card-header">
             <h5>Cadastrar Menu</h5>
         </div>
         <div class="card-body">
-            <form action="">
+            <form method="POST" action="{{ route('store-menu') }}">
+                @csrf
+
                 <input type="text" name="name" class="form-control" placeholder="Nome">
                 <br>
 
-                <select id="posts" name="post_id" class="form-control">
+                <select id="posts" class="form-control">
                     <option value="">Vincule uma página</option>
                     @foreach ($posts as $post)
                         <option value="{{$post->id}}">{{$post->title}}</option>        
                     @endforeach
                 </select>
+                
+                <br>
+                <div id="pages"></div>
 
-                <div class="menu-items"></div>
-
+                <br>
+                <button class="btn btn-primary btn-block">
+                    Salvar
+                </button>
             </form>
         </div>
         <div class="card-footer"></div>
@@ -37,5 +47,5 @@
 @stop
 
 @section('js')
-    <script></script>
+    @include('includes.selectPosts')
 @stop

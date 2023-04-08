@@ -1,11 +1,11 @@
 <?php
 
-namespace GustavoMorais\Cms\Actions\Menus;
+namespace GustavoMorais\Cms\Actions\Posts;
 
 use GustavoMorais\Cms\Actions\AbAction;
-use GustavoMorais\Cms\Models\Menu;
+use GustavoMorais\Cms\Models\Post;
 
-class GetMenuByColumn extends AbAction
+class GetPostByColumn extends AbAction
 {
     public function execute()
     {
@@ -14,15 +14,15 @@ class GetMenuByColumn extends AbAction
             is_array($this->data)
             && !empty($this->data)
         ) {
-            $query = Menu::with('items.post');
+            $query = Post::select('id', 'title', 'content');
 
             foreach ($this->data as $column => $value) {
                 $query->where($column, $value);
             }
 
-            $menu = $query->first();
+            $post = $query->first();
 
-            $result = $this->success($menu);
+            $result = $this->success($post);
         }
         
         return $result;

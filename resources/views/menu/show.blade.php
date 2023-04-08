@@ -7,10 +7,13 @@
 @stop
 
 @section('content')
-
+    <ul>
     @foreach ($menu->items as $item)
-        <input type="text" name="{{ $item->id }}" value="{{ $item->name }}"
-            class="form-control">
+        <li>
+            <a href="{{ route('show-post', ['url' => $item->post->url]) }}">
+                {{ $item->post->title }}
+            </a>
+        </li>
     @endforeach
 
     </ul>

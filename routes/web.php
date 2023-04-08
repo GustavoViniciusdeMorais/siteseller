@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactInfosController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,7 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/menus', [MenuController::class, 'index'])->name('menus');
     Route::get('/menus/create', [MenuController::class, 'create'])->name('create-menu');
     Route::get('/menus/{id}', [MenuController::class, 'show'])->name('show-menu');
+    Route::post('menus', [MenuController::class, 'store'])->name('store-menu');
+
+    Route::get('/posts/{url}', [PostsController::class, 'show'])->name('show-post');
 });

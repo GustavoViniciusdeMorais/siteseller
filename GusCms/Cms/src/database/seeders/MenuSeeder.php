@@ -25,29 +25,8 @@ class MenuSeeder extends Seeder
 
         MenuItem::insert(
             [
-                'name' => 'About us',
-                'url' => 'about-us',
+                'post_id' => 1,
                 'menu_id' => 1
-            ]
-        );
-
-        MenuSubItem::insert(
-            [
-                [
-                    'name' => 'Vision',
-                    'url' => 'vision',
-                    'menu_item_id' => 1
-                ],
-                [
-                    'name' => 'Mission',
-                    'url' => 'mission',
-                    'menu_item_id' => 1
-                ],
-                [
-                    'name' => 'Values',
-                    'url' => 'values',
-                    'menu_item_id' => 1
-                ]
             ]
         );
     }

@@ -11,6 +11,7 @@ use GustavoMorais\Cms\Actions\ContactInfos\GetDataAction;
 use GustavoMorais\Cms\Actions\ContactInfos\UpdateContactsAction;
 use GustavoMorais\Cms\Actions\Menus\GetMenusAction;
 use GustavoMorais\Cms\Actions\Menus\GetMenuByColumn;
+use GustavoMorais\Cms\Operations\Menus\CreateMenuOperation;
 
 class GusCms
 {
@@ -70,5 +71,11 @@ class GusCms
     {
         $action = new GetMenuByColumn();
         return $action->withData($data)->execute();
+    }
+
+    public function createMenu($data)
+    {
+        $operation = new CreateMenuOperation();
+        return $operation->withData($data)->execute();
     }
 }
