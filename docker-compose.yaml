@@ -9,7 +9,7 @@ services:
             - 80:80
         volumes:
             - ./:/var/www/html
-        container_name: guscmsginx
+        container_name: cmsng
         depends_on:
             - php
             - mysql
@@ -22,14 +22,14 @@ services:
             dockerfile: php.dockerfile
         volumes:
             - ./:/var/www/html
-        container_name: guscmsphp
+        container_name: cmsphp
         networks:
             - cms-app-network
 
     mysql:
         image: mysql:5.7
         restart: always
-        container_name: cmsmysql
+        container_name: cmql
         ports:
             - 3306:3306
         environment:

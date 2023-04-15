@@ -9,7 +9,21 @@ class GetPostsAction extends AbAction
 {
     public function execute()
     {
-        $posts = Post::all();
-        return $this->success($posts);
+        $query = Post::select('id', 'title', 'content', 'url', 'created_at');
+
+        if (
+            is_array($this->data)
+            && !empty($this->data)
+        ) {
+            foreach ($this->data as $column => $value) {
+                $query->where($column, $value);
+            }
+        }
+        
+        $query->orderBy('created_at');
+
+        $post = $query->get();
+
+        return $this->success($post);
     }
 }

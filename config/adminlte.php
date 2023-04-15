@@ -331,6 +331,10 @@ return [
             'text' => 'menus',
             'url' => 'dashboard/menus'
         ],
+        [
+            'text' => 'páginas',
+            'url' => 'dashboard/posts'
+        ],
     ],
 
     /*

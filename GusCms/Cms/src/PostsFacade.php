@@ -8,15 +8,21 @@ use GustavoMorais\Cms\Actions\Posts\GetPostByColumn;
 
 class PostsFacade
 {
-    public function getPosts()
+    public function getPosts($data = null)
     {
         $action = new GetPostsAction();
-        return $action->execute();
+        return $action->withData($data)->execute();
     }
 
     public function getPostByColumn($data)
     {
         $action = new GetPostByColumn();
+        return $action->withData($data)->execute();
+    }
+
+    public function createPost($data)
+    {
+        $action = new CreatePostAction();
         return $action->withData($data)->execute();
     }
 }

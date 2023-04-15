@@ -22,6 +22,10 @@ use App\Http\Controllers\PostsController;
 
 Route::get('/', [SiteController::class, 'index'])->name('home-page');
 
+Route::prefix('posts')->group(function () {
+    Route::get('{name}', [PostsController::class, 'customerShow'])->name('show-customer-post');
+});
+
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
@@ -40,5 +44,8 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/menus/{id}', [MenuController::class, 'show'])->name('show-menu');
     Route::post('menus', [MenuController::class, 'store'])->name('store-menu');
 
+    Route::post('/posts/store', [PostsController::class, 'store'])->name('store-post');
+    Route::get('/posts/create', [PostsController::class, 'create'])->name('create-post');
+    Route::get('/posts', [PostsController::class, 'index'])->name('list-posts');
     Route::get('/posts/{url}', [PostsController::class, 'show'])->name('show-post');
 });
