@@ -22,7 +22,7 @@ services:
             dockerfile: php.dockerfile
         volumes:
             - ./:/var/www/html
-        container_name: cmsphp
+        container_name: phpcms
         networks:
             - cms-app-network
 

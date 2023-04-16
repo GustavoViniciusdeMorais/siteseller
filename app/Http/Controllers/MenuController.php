@@ -9,6 +9,7 @@ use GustavoMorais\Cms\LogFacade;
 class MenuController extends CustomController
 {
     use TMessageManager;
+    protected $statusOptions = ['principal', 'secundario'];
 
     public function index()
     {
@@ -18,7 +19,10 @@ class MenuController extends CustomController
             $menus = $this->cmsFacade->getMenus();
             $menus = $menus->original['data'];
 
-            return view('menu.index', ['menus' => $menus]);
+            return view('menu.index', [
+                'menus' => $menus,
+                'statusOptions'=> $this->statusOptions
+            ]);
         } catch (\Exception $e) {
             LogFacade::registerLog($e);
             return view('menu.index', ['menus' => $menus]);

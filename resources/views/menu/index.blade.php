@@ -19,6 +19,15 @@
                 <a href="{{route('show-menu', ['id' => $menu->id])}}">
                     {{$menu->name}}
                 </a>
+                <select name="status" id="">
+                    @foreach ($statusOptions as $option)
+                        <option value=""
+                            {{ $menu->status ==  $option ? 'selected' : ''}}
+                        >
+                            {{$option}}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <div class="card-body">
                 

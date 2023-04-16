@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GustavoMorais\Cms\GusCms;
+use GustavoMorais\Cms\LogFacade;
 
 class SiteController extends Controller
 {
@@ -20,15 +21,18 @@ class SiteController extends Controller
             $template = $this->getTemplateInfo();
             $links = $this->getLinks();
             $contactInfos = $this->getContactInfo();
+            $menu = $this->getMenu();
+            // print_r(json_encode([$menu]));echo "\n\n";exit;
 
             return view('site.index', 
             [
                 'template' => $template,
                 'links' => $links,
                 'contactInfos' => $contactInfos,
+                'menu' => $menu
             ]);
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+            LogFacade::registerLog($e);
         }
     }
 
@@ -48,5 +52,13 @@ class SiteController extends Controller
     {
         $contactInfos = $this->cmsFacade->getContactInfos();
         return $contactInfos->original['data'];
+    }
+
+    public function getMenu()
+    {
+        $menu = $this->cmsFacade->getMenuByColumn(
+            ['status' => 'principal']
+        );        
+        return $menu->original['data'];
     }
 }
