@@ -19,7 +19,8 @@ class MenuSeeder extends Seeder
     {
         Menu::insert(
             [
-                'name' => 'SideBar'
+                'name' => 'SideBar',
+                'status' => 'principal'
             ]
         );
 

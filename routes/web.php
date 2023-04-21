@@ -43,6 +43,7 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/menus/create', [MenuController::class, 'create'])->name('create-menu');
     Route::get('/menus/{id}', [MenuController::class, 'show'])->name('show-menu');
     Route::post('menus', [MenuController::class, 'store'])->name('store-menu');
+    Route::put('/menus/{id}/status', [MenuController::class, 'updateStatus'])->name('update-menu-status');
 
     Route::post('/posts/store', [PostsController::class, 'store'])->name('store-post');
     Route::get('/posts/create', [PostsController::class, 'create'])->name('create-post');

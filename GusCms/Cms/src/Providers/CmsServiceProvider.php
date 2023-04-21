@@ -18,10 +18,10 @@ class CmsServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         $this->publishes([
-            __DIR__.'/../database/seeders' => database_path('seeders'),
+            __DIR__.'/../../database/seeders' => database_path('seeders'),
         ], 'cms-seeders');
     }
 

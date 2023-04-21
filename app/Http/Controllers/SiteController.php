@@ -22,7 +22,6 @@ class SiteController extends Controller
             $links = $this->getLinks();
             $contactInfos = $this->getContactInfo();
             $menu = $this->getMenu();
-            // print_r(json_encode([$menu]));echo "\n\n";exit;
 
             return view('site.index', 
             [

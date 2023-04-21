@@ -19,9 +19,9 @@
                 <a href="{{route('show-menu', ['id' => $menu->id])}}">
                     {{$menu->name}}
                 </a>
-                <select name="status" id="">
+                <select name="status" id="changeMenuStatus">
                     @foreach ($statusOptions as $option)
-                        <option value=""
+                        <option value="{{$option.'-'.$menu->id}}"
                             {{ $menu->status ==  $option ? 'selected' : ''}}
                         >
                             {{$option}}
@@ -41,5 +41,5 @@
 @stop
 
 @section('js')
-    <script></script>
+    @include('includes.changeMenuStatus')
 @stop

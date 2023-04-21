@@ -70,4 +70,17 @@ class MenuController extends CustomController
             return view('errors.index');
         }
     }
+
+    public function updateStatus(Request $request)
+    {
+        try {
+            $menu = $this->cmsFacade->updateMenuStatus($request->all());
+            $menu = $menu->original['data'];
+
+            return json_encode($menu);
+        } catch (\Exception $e) {
+            LogFacade::registerLog($e);
+            return view('errors.index');
+        }
+    }
 }
