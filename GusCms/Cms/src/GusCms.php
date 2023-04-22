@@ -9,6 +9,8 @@ use GustavoMorais\Cms\Actions\Template\GetTemplatesAction;
 use GustavoMorais\Cms\Actions\Template\UpdateDataAction;
 use GustavoMorais\Cms\Actions\ContactInfos\GetDataAction;
 use GustavoMorais\Cms\Actions\ContactInfos\UpdateContactsAction;
+use GustavoMorais\Cms\Actions\Menus\AddPostToMenuAction;
+use GustavoMorais\Cms\Actions\Menus\RemoveMenuPostAction;
 use GustavoMorais\Cms\Actions\Menus\GetMenusAction;
 use GustavoMorais\Cms\Actions\Menus\GetMenuByColumn;
 use GustavoMorais\Cms\Operations\Menus\CreateMenuOperation;
@@ -83,6 +85,18 @@ class GusCms
     public function updateMenuStatus($data)
     {
         $action = new UpdateMenuStatusAction();
+        return $action->withData($data)->execute();
+    }
+    
+    public function removeMenuPost($data)
+    {
+        $action = new RemoveMenuPostAction();
+        return $action->withData($data)->execute();
+    }
+
+    public function addPostToMenu($data)
+    {
+        $action = new AddPostToMenuAction();
         return $action->withData($data)->execute();
     }
 }

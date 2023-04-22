@@ -39,7 +39,13 @@ class MenuController extends CustomController
             );
             $menu = $menu->original['data'];
 
-            return view('menu.show', ['menu' => $menu]);
+            $posts = $this->postsFacade->getPosts();
+            $posts = $posts->original['data'];
+
+            return view('menu.show', [
+                'menu' => $menu,
+                'posts' => $posts
+            ]);
         } catch (\Exception $e) {
             LogFacade::registerLog($e);
             return view('errors.index');
@@ -81,6 +87,38 @@ class MenuController extends CustomController
         } catch (\Exception $e) {
             LogFacade::registerLog($e);
             return view('errors.index');
+        }
+    }
+
+    public function removeItem($menuId, $postId)
+    {
+        try {
+            $menu = $this->cmsFacade->removeMenuPost(
+                [
+                    'menuId' => $menuId,
+                    'postId' => $postId
+                ]
+            );
+            
+            return json_encode($menu);
+        } catch (\Exception $e) {
+            return LogFacade::registerLog($e);
+        }
+    }
+
+    public function addItem($menuId, $postId)
+    {
+        try {
+            $menu = $this->cmsFacade->addPostToMenu(
+                [
+                    'menuId' => $menuId,
+                    'postId' => $postId
+                ]
+            );
+            
+            return json_encode($menu);
+        } catch (\Exception $e) {
+            return LogFacade::registerLog($e);
         }
     }
 }

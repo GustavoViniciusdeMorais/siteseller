@@ -44,6 +44,8 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/menus/{id}', [MenuController::class, 'show'])->name('show-menu');
     Route::post('menus', [MenuController::class, 'store'])->name('store-menu');
     Route::put('/menus/{id}/status', [MenuController::class, 'updateStatus'])->name('update-menu-status');
+    Route::put('/menus/{menuId}/item/{postId}/remove', [MenuController::class, 'removeItem'])->name('remove-menu-item');
+    Route::post('/menus/{menuId}/item/{postId}', [MenuController::class, 'addItem'])->name('add-menu-item');
 
     Route::post('/posts/store', [PostsController::class, 'store'])->name('store-post');
     Route::get('/posts/create', [PostsController::class, 'create'])->name('create-post');
