@@ -6,15 +6,18 @@
     });
 
     $("#posts").on("change",function(){
-            var postId = $(this).val();
+            var postId = $(this).val().match(/\d/)[0];
+            var postUrl = $(this).val().match(/(?<=\d\-)[a-z\-]*/i)[0];
             var postName = $(this).children(':selected').text();
 
             var menuId = $("#menuId").val();
-            console.log(postId, menuId);
+            console.log(postId, 'post url: '+postUrl, menuId);
 
             var html = '';
             html += `<li id="post-line-${postId}">`;
+            html += `<a href="${'/posts/'+postUrl}">`;
             html += `${postName}`;
+            html += '</a>';
             html += '<button id="removePostItem" type="button" class="btn btn-danger"'
             html +=`data-itemId="${postId}"`;
             html+= '>';
