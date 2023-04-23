@@ -14,9 +14,7 @@
         </div>
 
         <div class="card-body">
-            <textarea name="content" class="form-control" rows="10" cols="3">
-            {{ $post->content }}
-            </textarea>
+            <textarea name="content" class="form-control" rows="10" cols="3">{{ $post->content }}</textarea>
         </div>
 
         <div class="card-footer">
